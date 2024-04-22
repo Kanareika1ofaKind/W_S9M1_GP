@@ -24,12 +24,15 @@ describe('Todos Component', () => {
       input = screen.getByPlaceholderText('type todo') 
     })
   })
+  
+
 
   test('all todos are present', async () => {
     expect(laundry).toBeVisible()
     expect(dishes).toBeVisible()
     expect(groceries).toBeVisible()
   })
+  
   test('can do and undo todos', async () => {
     const tasks = ['laundry', 'dishes', 'groceries']
     for (const task of task) {
@@ -41,6 +44,7 @@ describe('Todos Component', () => {
       expect(screen.queryByText(`${task} ✅`)).not.toBeInTheDocument()
     }
   })
+
   test('can delete todos', async () => {
     const tasks = ['laundry', 'dishes', 'groceries']
     for (const task of task) {
@@ -51,6 +55,7 @@ describe('Todos Component', () => {
       })
     }
   })
+
   test('can create a new todo, complete it and delete it', async () => {
     let learnJS
     await user.type(input, 'Learn JavaScript')
